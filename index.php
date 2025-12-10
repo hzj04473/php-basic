@@ -9,9 +9,13 @@
 
 <body>
     <h1>PHP를 공부합시다</h1>
-    <?php echo '안녕하세요'; ?>
+    <?php // 변수
+    $a = 1; ?>
+
+
     <script>
-    document.write('안녕하세요');
+    // 변수
+    let a = 1;
     </script>
 </body>
 
