@@ -2,11 +2,15 @@
 // DB 연결
 include_once 'db.php';
 
-$sql = 'SELECT * FROM myguests';
-$stmt = $conn->prepare($sql);
-$stmt->execute();
-
-$rs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+try {
+    $sql = 'SELECT * FROM myguests';
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $rs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    echo 'DB error: ' . htmlspecialchars($e->getMessage(), ENT_QUOTES, 'UTF-8');
+    exit();
+}
 
 echo "<table border='1'>";
 echo '<tr>
